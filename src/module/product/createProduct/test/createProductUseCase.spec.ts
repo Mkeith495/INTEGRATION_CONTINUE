@@ -125,6 +125,6 @@ describe('US-1 : Créer un produit', () => {
                 price: 500
             })
             // Alors une erreur doit être envoyée «erreur lors de la création du produit»
-        ).rejects.toThrow('erreur lors de la création du produit (message faux)');
+        ).rejects.toThrow('erreur lors de la création du produit');
     });
 });
