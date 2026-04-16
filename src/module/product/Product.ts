@@ -42,11 +42,11 @@ export class Product {
     }
 
     private validateTitle(title: string) {
-/////////////////////////////////////////////////
+        /////////////////////////////////////////////////
         if (title.startsWith(' ')) {
             throw new Error('le titre ne doit pas commencer par un espace');
         }
-///////////////////////////////////////////////
+        ///////////////////////////////////////////////
         if (title.length < 3) {
             throw new Error('titre trop court');
         }

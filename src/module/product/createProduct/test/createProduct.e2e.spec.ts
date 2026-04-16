@@ -137,7 +137,6 @@ describe('US-1 : Créer un produit - E2E', () => {
         expect(products).toHaveLength(0);
     });
 
-
     test('Scénario 5: création échouée, titre supérieur à 20 caractères', async () => {
         await dataSource.getRepository(Product).clear();
 
@@ -175,10 +174,10 @@ describe('US-1 : Créer un produit - E2E', () => {
         const products = await dataSource.getRepository(Product).find();
         expect(products).toHaveLength(0);
     });
-    
+
     ///////////////////////////////////////////
 
-    test("Scénario 7: création réussie, titre ne commençant pas par un espace", async () => {
+    test('Scénario 7: création réussie, titre ne commençant pas par un espace', async () => {
         await dataSource.getRepository(Product).clear();
 
         const response = await request(app)
@@ -196,7 +195,7 @@ describe('US-1 : Créer un produit - E2E', () => {
         expect(products[0].title).toBe('switch');
     });
 
-    test("Scénario 8: création échouée, titre commençant par un espace", async () => {
+    test('Scénario 8: création échouée, titre commençant par un espace', async () => {
         await dataSource.getRepository(Product).clear();
 
         const response = await request(app)

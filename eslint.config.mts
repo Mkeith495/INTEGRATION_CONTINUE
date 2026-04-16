@@ -15,7 +15,43 @@ export default tseslint.config(
     ]
   },
   {
-    files: ["**/*.ts"],
+    files: ["**/*.spec.ts", "**/*.e2e.spec.ts", "tests/**/*.ts"],
+    extends: [tseslint.configs.recommended],
+    languageOptions: {
+      globals: {
+        ...globals.node,
+        ...globals.jest
+      },
+      parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: "module"
+      }
+    },
+    plugins: {
+      prettier: prettierPlugin
+    },
+    rules: {
+      ...prettierConfig.rules,
+      "prettier/prettier": "warn",
+      "@typescript-eslint/no-unused-vars": ["warn", {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_|error"
+      }],
+      "@typescript-eslint/explicit-function-return-type": "off",
+      "@typescript-eslint/no-explicit-any": "warn",
+      "@typescript-eslint/no-var-requires": "off",
+      "@typescript-eslint/no-require-imports": "off"
+    }
+  },
+  {
+    files: ["src/**/*.ts"],
+    ignores: [
+      "src/**/*.spec.ts",
+      "src/**/*.e2e.spec.ts",
+      "src/**/test/**/*.ts",
+      "src/**/tests/**/*.ts"
+    ],
     extends: [tseslint.configs.recommended],
     languageOptions: {
       globals: {
